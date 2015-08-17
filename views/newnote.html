@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ title }}</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.1/cyborg/bootstrap.css"/>
+  <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css"/>-->
+
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Daily Stand-Up</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        <li class="active"><a href="/newnote">New Note</a></li>
+        <li><a href="/todo">TO DO</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="text-center">
+    <h1>Scrum Meeting</h1>
+    <p class="lead">Use this Board to enter your daily details...</p>
+  </div>
+
+  {% if message.length > 0 %}
+  <div class="alert alert-danger alert-error">
+    {{ message }}
+  </div>
+  {% endif %}
+
+  <form class="form-horizontal" action="newnote" method="post">
+    <fieldset>
+
+      <!-- Form Name -->
+      <legend>Enter a Daily Note</legend>
+
+      <!-- Select Basic -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="memberName">Name</label>
+        <div class="col-md-4">
+          <select id="memberName" name="memberName" class="form-control">
+            <option value="None">(Select Name)</option>
+            <option value="Rahul">Rahul Sahay</option>
+            <option value="Amina">Noorain Amina</option>
+            <option value="Haneef">Haneef</option>
+            <option value="Obaid">Obaid</option>
+            <option value="Badri">Badri</option>
+            <option value="Radha">Radha</option>
+            <option value="Shiv">Shiv</option>
+            <option value="Anil">Anil</option>
+            <option value="Mayank">Mayank Chauhan</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Select Basic -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="projectName">Current Project or Task</label>
+        <div class="col-md-4">
+          <select id="projectName" name="projectName" class="form-control">
+            <option value="None">(Select Project)</option>
+            <option value="Dell Print">Dell Print</option>
+            <option value="Cart">Cart</option>
+            <option value="Account">Account</option>
+            <option value="B2B">B2B</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Textarea -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="workedYesterday">What did you work on yesterday?</label>
+        <div class="col-md-6">
+          <textarea class="form-control" id="workedYesterday" name="workedYesterday">Yesterday</textarea>
+        </div>
+      </div>
+
+      <!-- Textarea -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="workToday">What will you work on today?</label>
+        <div class="col-md-6">
+          <textarea class="form-control" id="workToday" name="workToday">Today</textarea>
+        </div>
+      </div>
+
+      <!-- Textarea -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="anyBlocker">Any Blocker(s)?</label>
+        <div class="col-md-6">
+          <textarea class="form-control" id="anyBlocker" name="anyBlocker">None</textarea>
+        </div>
+      </div>
+
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="btnSaveNote">Save Note</label>
+        <div class="col-md-4">
+          <button id="btnSaveNote" name="btnSaveNote" class="btn btn-primary" type="submit">Save</button>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+
+
+</div><!-- /.container -->
+</body>
+</html>
